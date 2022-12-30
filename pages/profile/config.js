@@ -184,7 +184,7 @@ export default function Config() {
               />
             </Grid>
             <Grid item xs={12}>
-              <FormControl sx={{ m: 1, width: 450 }}>
+              <FormControl fullWidth>
                 <InputLabel id="domaine-activite-interessants">
                   Domaines d&apos;activité intéressants
                 </InputLabel>

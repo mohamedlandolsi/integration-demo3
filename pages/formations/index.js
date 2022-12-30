@@ -10,6 +10,7 @@ import CoursesList from "../../components/formations/courses-list";
 import { getAllCourses } from "../../dummy-data";
 import ScrollToTop from "react-scroll-to-top";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import Link from "next/link";
 
 const theme = createTheme({
   palette: {
@@ -62,12 +63,14 @@ export default function CoursesPage() {
               >
                 Découvrir les Formations
               </Button>
-              {/* <Button
+              <Link href="/formations/add-formation" passHref>
+              <Button
                 variant="outlined"
                 style={{ color: "#06283D", borderColor: "#256D85" }}
               >
-                Secondary action
-              </Button> */}
+                Ajouter une Formation
+              </Button>
+              </Link>
             </Stack>
           </Container>
 

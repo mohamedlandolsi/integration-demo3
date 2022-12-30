@@ -10,6 +10,7 @@ import TestList from "../../components/tests/test-list";
 import { getAllTests } from "../../dummy-data";
 import ScrollToTop from "react-scroll-to-top";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import Link from "next/link";
 
 const theme = createTheme({
   palette: {
@@ -62,12 +63,14 @@ export default function TestsPage() {
               >
                 Découvrir les Tests
               </Button>
-              {/* <Button
+              <Link href="/tests/add-test" passHref>
+              <Button
                 variant="outlined"
                 style={{ color: "#06283D", borderColor: "#256D85" }}
               >
-                Secondary action
-              </Button> */}
+                Ajouter un Test
+              </Button>
+              </Link>
             </Stack>
           </Container>
 
