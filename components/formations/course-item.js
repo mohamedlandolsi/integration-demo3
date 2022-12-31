@@ -4,9 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActions } from "@mui/material";
+import Link from "next/link";
 
 export default function CourseItem(props) {
-  const { title, description, image, date, id, domain } = props;
+  const { title, description, thumb, date, id, domain } = props;
 
   const humanReadableDate = new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
@@ -31,7 +32,7 @@ export default function CourseItem(props) {
             // 16:9
             pt: "0%",
           }}
-          image={image}
+          image={thumb}
           alt={title}
         />
         <CardContent sx={{ flexGrow: 1 }}>
@@ -41,9 +42,21 @@ export default function CourseItem(props) {
           <Typography>{description}</Typography>
         </CardContent>
         <CardActions>
-          <Button size="medium">
-            <Typography color="#256D85">Détail</Typography>
-          </Button>
+          <Link href={`/formations/${id}`} passHref>
+            <Button size="medium">
+              <Typography color="#256D85">Détail</Typography>
+            </Button>
+          </Link>
+          <Link href={`/formations/${id}/edit`} passHref>
+            <Button size="medium">
+              <Typography color="#256D85">Modifier</Typography>
+            </Button>
+          </Link>
+          <Link href={`/formations/${id}/delete`} passHref>
+            <Button size="medium">
+              <Typography color="#256D85">Supprimer</Typography>
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </Grid>

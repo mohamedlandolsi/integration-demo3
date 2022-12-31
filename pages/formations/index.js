@@ -21,7 +21,7 @@ const theme = createTheme({
   },
 });
 
-export default function CoursesPage() {
+export default function CoursesPage({ formations = [] }) {
   const courses = getAllCourses();
 
   return (
@@ -64,17 +64,17 @@ export default function CoursesPage() {
                 Découvrir les Formations
               </Button>
               <Link href="/formations/add-formation" passHref>
-              <Button
-                variant="outlined"
-                style={{ color: "#06283D", borderColor: "#256D85" }}
-              >
-                Ajouter une Formation
-              </Button>
+                <Button
+                  variant="outlined"
+                  style={{ color: "#06283D", borderColor: "#256D85" }}
+                >
+                  Ajouter une Formation
+                </Button>
               </Link>
             </Stack>
           </Container>
 
-          <CoursesList items={courses} />
+          <CoursesList formations={formations} />
           <ScrollToTop
             smooth
             component={<KeyboardDoubleArrowUpIcon color="primary" />}
@@ -83,4 +83,15 @@ export default function CoursesPage() {
       </main>
     </ThemeProvider>
   );
+}
+
+export async function getServerSideProps() {
+  const response = await fetch("http://localhost:3000/api/formations");
+  const formations = await response.json();
+
+  return {
+    props: {
+      formations,
+    },
+  };
 }
