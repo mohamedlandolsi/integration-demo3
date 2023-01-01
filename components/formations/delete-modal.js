@@ -10,7 +10,8 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
+  bgcolor: '#06283D',
+  color: 'white',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -32,7 +33,7 @@ export default function DeleteModal(props) {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Etes vous sûre de vouloir supprimer cette formation?
           </Typography>
-          <Button onClick={props.handleDelete}>Confirmer</Button>
+          <Button sx={{ mt: 3 }} color='secondary' variant='contained' onClick={props.handleDelete}>Confirmer</Button>
         </Box>
       </Modal>
     </div>

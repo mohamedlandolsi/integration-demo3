@@ -6,6 +6,7 @@ import CopyrightIcon from "@mui/icons-material/Copyright";
 export default function MainFooter() {
   return (
     <Box
+      component="footer"
       sx={{
         backgroundColor: "primary.dark",
       }}

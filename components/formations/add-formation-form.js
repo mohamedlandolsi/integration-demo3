@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function AddFormationForm() {
   const notify = () => toast.success("sqdqsdqs");
@@ -49,8 +49,6 @@ function AddFormationForm() {
     setIsSubmit(true);
     if (query.id) {
       await updateFormation();
-    } else {
-      return;
     }
     createFormation();
     push("/formations");
@@ -66,7 +64,7 @@ function AddFormationForm() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const createFormation = async () => {
     try {
@@ -86,14 +84,22 @@ function AddFormationForm() {
   };
 
   const getFormation = async () => {
-    const response = await fetch(`http://localhost:3000/api/formations/${query.id}`);
+    const response = await fetch(
+      `http://localhost:3000/api/formations/${query.id}`
+    );
     const data = await response.json();
-    setNewFormation({ title: data.title, description: data.description, domain: data.domain, thumb: data.thumb, instructor: data.instructor });
-  }
+    setNewFormation({
+      title: data.title,
+      description: data.description,
+      domain: data.domain,
+      thumb: data.thumb,
+      instructor: data.instructor,
+    });
+  };
 
   React.useEffect(() => {
     if (query.id) getFormation();
-  }, [query.id])
+  }, [query.id]);
 
   return (
     <Container component="main" maxWidth="xs" sx={{ mb: 5 }} className="box">

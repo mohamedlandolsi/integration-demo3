@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import Layout from "../components/layout/layout";
 import { useRouter } from "next/router";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { AuthContextProvider } from "../stores/authContext";
 import Head from "next/head";
 
@@ -42,8 +42,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/images/test.png"></link>
       </Head>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Layout>
-            <Component {...pageProps} />
+          <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
     </AuthContextProvider>

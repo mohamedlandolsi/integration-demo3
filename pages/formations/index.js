@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CoursesList from "../../components/formations/courses-list";
-import { getAllCourses } from "../../dummy-data";
 import ScrollToTop from "react-scroll-to-top";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Link from "next/link";
@@ -46,11 +45,6 @@ export default function CoursesPage({ formations = [] }) {
             >
               Formations
             </Typography>
-            {/* <Typography variant="h5" align="center" color="#06283D" paragraph>
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
-            </Typography> */}
             <Stack
               sx={{ pt: 4 }}
               direction="row"
@@ -73,7 +67,6 @@ export default function CoursesPage({ formations = [] }) {
               </Link>
             </Stack>
           </Container>
-
           <CoursesList formations={formations} />
           <ScrollToTop
             smooth

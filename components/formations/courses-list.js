@@ -5,19 +5,8 @@ export default function CoursesList(props) {
 
   return (
     <>
-      <Container sx={{ py: 8 }} Width="50%">
+      <Container sx={{ py: 8 }} width="50%">
         <Grid container spacing={5}>
-          {/* {items.map((course) => (
-            <CourseItem
-              key={course.id}
-              id={course.id}
-              title={course.title}
-              description={course.description}
-              date={course.date}
-              image={course.image}
-              domain={course.domain}
-            />
-          ))} */}
           {props.formations.map((formation) => {
             return (
               <CourseItem
