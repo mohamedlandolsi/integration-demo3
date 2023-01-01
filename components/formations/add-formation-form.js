@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { Alert } from "@mui/material";
 
 function AddFormationForm() {
   const [newFormation, setNewFormation] = useState({
@@ -23,15 +22,6 @@ function AddFormationForm() {
   const { push } = useRouter();
   const [isSubmit, setIsSubmit] = useState(false);
   const [errors, setErrors] = useState({});
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-  // };
 
   const validate = () => {
     let errors = {};

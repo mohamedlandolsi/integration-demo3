@@ -203,8 +203,8 @@ function MainHeader() {
                             <ListItemIcon>
                               <InfoIcon fontSize="small" />
                             </ListItemIcon>
-                            <Link href="/profile/info" passHref>
-                              Informations
+                            <Link href="/profile" passHref>
+                              Profil
                             </Link>
                           </MenuItem>
                           <MenuItem onClick={popupState.close}>
