@@ -7,9 +7,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
 import Link from "next/link";
@@ -18,9 +16,7 @@ import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InfoIcon from "@mui/icons-material/Info";
 import { createTheme } from "@mui/material/styles";
-import Image from 'next/image'
 
-//
 import { useContext } from "react";
 import AuthContext from "../../stores/authContext";
 import { Logout, LogoutOutlined, Settings } from "@mui/icons-material";
@@ -193,14 +189,6 @@ function MainHeader() {
                           <Divider component="li" />
                           <MenuItem onClick={popupState.close}>
                             <ListItemIcon>
-                              <DashboardIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Link href="/profile/dashboard" passHref>
-                              Tableau de Bord
-                            </Link>
-                          </MenuItem>
-                          <MenuItem onClick={popupState.close}>
-                            <ListItemIcon>
                               <InfoIcon fontSize="small" />
                             </ListItemIcon>
                             <Link href="/profile" passHref>
@@ -209,10 +197,10 @@ function MainHeader() {
                           </MenuItem>
                           <MenuItem onClick={popupState.close}>
                             <ListItemIcon>
-                              <Settings fontSize="small" />
+                              <DashboardIcon fontSize="small" />
                             </ListItemIcon>
-                            <Link href="/profile/config" passHref>
-                              Configuration
+                            <Link href="/profile/dashboard" passHref>
+                              Tableau de Bord
                             </Link>
                           </MenuItem>
                           <MenuItem onClick={logout}>

@@ -14,7 +14,7 @@ export const AccountProfileDetails = () => {
     <>
       <Card>
         <CardHeader
-          subheader="Completer votre information"
+          subheader="Completez vos informations"
           title="Profil"
         />
         <Divider />

@@ -7,8 +7,12 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddFormationForm() {
+  const notify = () => toast.success("sqdqsdqs");
+
   const [newFormation, setNewFormation] = useState({
     title: "",
     description: "",
@@ -19,7 +23,7 @@ function AddFormationForm() {
 
   const { title, description, domain, thumb, instructor } = newFormation;
 
-  const { push } = useRouter();
+  const { push, query } = useRouter();
   const [isSubmit, setIsSubmit] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -43,9 +47,26 @@ function AddFormationForm() {
 
     if (Object.keys(errors).length) return setErrors(errors);
     setIsSubmit(true);
-    await createFormation();
-    await push("/formations");
+    if (query.id) {
+      await updateFormation();
+    } else {
+      return;
+    }
+    createFormation();
+    push("/formations");
   };
+
+  const updateFormation = async () => {
+    try {
+      await fetch(`http://localhost:3000/api/formations/${query.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newFormation),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const createFormation = async () => {
     try {
@@ -64,6 +85,16 @@ function AddFormationForm() {
     setNewFormation({ ...newFormation, [name]: value });
   };
 
+  const getFormation = async () => {
+    const response = await fetch(`http://localhost:3000/api/formations/${query.id}`);
+    const data = await response.json();
+    setNewFormation({ title: data.title, description: data.description, domain: data.domain, thumb: data.thumb, instructor: data.instructor });
+  }
+
+  React.useEffect(() => {
+    if (query.id) getFormation();
+  }, [query.id])
+
   return (
     <Container component="main" maxWidth="xs" sx={{ mb: 5 }} className="box">
       <Box
@@ -75,7 +106,7 @@ function AddFormationForm() {
         }}
       >
         <Typography component="h1" variant="h5">
-          Ajouter Formation
+          {query.id ? "Modifier Formation" : "Ajouter Formation"}
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
@@ -191,9 +222,11 @@ function AddFormationForm() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={notify}
           >
-            Continuer
+            {query.id ? "Modifier" : "Ajouter"}
           </Button>
+          <ToastContainer />
           <Grid container justifyContent="flex-end">
             <Grid item></Grid>
           </Grid>

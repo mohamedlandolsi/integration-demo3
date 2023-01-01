@@ -1,9 +1,7 @@
 import {
   Avatar,
   Box,
-  Button,
   Card,
-  CardActions,
   CardContent,
   Divider,
   Typography
@@ -53,15 +51,6 @@ export const AccountProfile = (props) => {
           </Box>
         </CardContent>
         <Divider />
-        <CardActions>
-          <Button
-            color="primary"
-            fullWidth
-            variant="text"
-          >
-            Upload picture
-          </Button>
-        </CardActions>
       </Card>
     </>)
 }

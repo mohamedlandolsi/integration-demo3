@@ -11,6 +11,7 @@ import { getAllCourses } from "../../dummy-data";
 import ScrollToTop from "react-scroll-to-top";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const theme = createTheme({
   palette: {
@@ -22,13 +23,12 @@ const theme = createTheme({
 });
 
 export default function CoursesPage({ formations = [] }) {
-  const courses = getAllCourses();
+  const router = useRouter();
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
-        {/* Hero unit */}
         <Box
           sx={{
             bgcolor: "#DFF6FF",

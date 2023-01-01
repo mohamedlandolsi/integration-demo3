@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { AccountProfile } from '../../components/profile/account-profile';
-import BasicTabs from './tab-panel';
+import LabTabs from './tab-panel';
 
 const Page = () => (
     <>
@@ -22,7 +22,7 @@ const Page = () => (
                     sx={{ mb: 3 }}
                     variant="h4"
                 >
-                    Account
+                    Mon Compte
                 </Typography>
                 <Grid
                     container
@@ -42,7 +42,7 @@ const Page = () => (
                         md={6}
                         xs={12}
                     >
-                        <BasicTabs />
+                        <LabTabs />
                     </Grid>
                 </Grid>
             </Container>
